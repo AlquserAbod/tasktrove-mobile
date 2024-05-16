@@ -57,6 +57,16 @@
   "completed": "completed",
   "incompleted": "incompleted",
   "create_task": "Create Task",
+  "update_task": "Update Task",
   "title_field": "Title field",
-  "color_field": "Color field"
+  "color_field": "Color field",
+  "task_is_completed": "the task is completed",
+  "task_is_not_completed": "the task is not completed",
+  "task_color_is" : "task color is :  ",
+  "my_tasks": "My tasks",
+  "filter_tasks": " Filter Tasks",
+  "search_in_title": "Search in title",
+  "select_search_colors": "Select colors",
+  "reset_filters": "Reset filters",
+  "no_tasks_founded": "There is no task. Try adding tasks to display here"
 }

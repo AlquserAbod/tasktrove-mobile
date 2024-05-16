@@ -7,13 +7,11 @@ import 'package:tasktrove/LocalStorage/TaskStorage.dart';
 import 'package:tasktrove/Services/NavigationService.dart';
 import 'package:tasktrove/Singletons/DioSingleton.dart';
 import 'package:tasktrove/config.dart' as config;
-import 'package:tasktrove/providers/BottomNavBarProvider.dart';
 import 'package:tasktrove/providers/tasks_provider.dart';
 
-class TasksHelper {
 
-  
-  static void createTask(context, String title,config.Color color,{bool isCompleted = false}) async {
+class TasksHelper {
+  static void createTask(context, String title,config.TaskColor color,{bool isCompleted = false}) async {
     Map<String, dynamic>? currentUser = await AuthStorage.currentUser();
     bool isAuthenticated = currentUser != null;
     List<Map<String, dynamic>> tasks = [];
@@ -44,9 +42,7 @@ class TasksHelper {
       tasks = await TaskStorage.addTask(title, string_color,isCompleted);
     }
 
-    Provider.of<TasksProvider>(context, listen: false).setTasks(tasks);
-    Provider.of<BottomNavBarProvider>(context, listen: false).controller?.jumpToTab(0);
-    
+    Provider.of<TasksProvider>(context, listen: false).setTasks(tasks);    
   }
 
   static Future<List<Map<String, dynamic>>> getAllTasks() async {
@@ -134,7 +130,7 @@ class TasksHelper {
     }
   }
 
-  static void updateTask(Map<String, dynamic> task, {String? newTitle,config.Color? newColor, bool? isCompleted}) async {
+  static void updateTask(Map<String, dynamic> task, {String? newTitle,config.TaskColor? newColor, bool? isCompleted}) async {
     try {
       Map<String, dynamic>? currentUser = await AuthStorage.currentUser();
       bool isAuthenticated = currentUser != null;

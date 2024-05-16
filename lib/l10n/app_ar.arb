@@ -58,5 +58,15 @@
   "incompleted": "غير مكتمل",
   "create_task": "إنشاء مهمة",
   "title_field": "حقل العنوان",
-  "color_field": "حقل اللون"
+  "color_field": "حقل اللون",
+  "update_task": "تحديث المهمة",
+  "task_is_completed": "تم إكمال المهمة",
+  "task_is_not_completed": "لم يتم إكمال المهمة",
+  "task_color_is": "لون المهمة هو:  ",
+  "my_tasks": "مهامي",
+  "filter_tasks": "تصفية المهام",
+  "search_in_title": "البحث في العنوان",
+  "select_search_colors": "اختر الألوان",
+  "reset_filters": "إعادة تعيين الفلاتر",
+  "no_tasks_founded": "مُتعذّر العثور على مهمة. حاول إضافة المهام لعرضها هنا"
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Color getColor(String colorName) {
+Color? getColor(String colorName) {
   switch (colorName) {
     case 'red':
       return Colors.red;
@@ -23,6 +23,6 @@ Color getColor(String colorName) {
     case 'pink':
       return Colors.pink;
     default:
-      return Colors.grey;
+      return null;
   }
 }

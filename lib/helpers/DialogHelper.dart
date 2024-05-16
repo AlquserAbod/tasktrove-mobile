@@ -4,11 +4,14 @@ import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:tasktrove/LocalStorage/AuthStorage.dart';
 import 'package:tasktrove/Singletons/DioSingleton.dart';
+import 'package:tasktrove/components/Tasks/FilterTasksDialogBody.dart';
 import 'package:tasktrove/helpers/SignWithGoogleHelper.dart';
+import 'package:tasktrove/helpers/TasksFilterHelper.dart';
 import 'package:tasktrove/pages/SettingsScreen.dart';
 import 'package:tasktrove/config.dart' as config;
 
 class DialogHelper {
+
   static void showLogoutDialog(BuildContext context, {VoidCallback? onConfirm}) {
     AppLocalizations l = AppLocalizations.of(context)!;
 
@@ -39,7 +42,6 @@ class DialogHelper {
       },
     )..show();
   }
-
 
   static void showRemoveAccountDialog(BuildContext context, {VoidCallback? onConfirm}) {
     AppLocalizations l = AppLocalizations.of(context)!;
@@ -100,4 +102,29 @@ class DialogHelper {
     )..show();
   }
 
+  static void showFilterTasksDialog(BuildContext context, {VoidCallback? onConfirm}) {
+    AppLocalizations l = AppLocalizations.of(context)!;
+    GlobalKey<FilterTasksState> bodyKey = GlobalKey<FilterTasksState>();
+
+    AwesomeDialog(
+      context: context,
+      dialogType: DialogType.noHeader,
+      headerAnimationLoop: false,
+      animType: AnimType.topSlide,
+      body: FilterTasks(
+        key: bodyKey,
+        initialFilterData: TasksFilterHelper.savedFilterData,
+      ),
+      btnCancelColor: Colors.grey,
+      btnCancelText: l.cancel,
+      btnCancelOnPress: () => {},
+      btnOkColor: Colors.blueAccent[400],
+      btnOkText: l.filter_tasks,
+      btnOkOnPress: () {
+        TaskFilterData filterData = bodyKey.currentState!.getSelectedData();
+        TasksFilterHelper.savedFilterData = filterData;
+        TasksFilterHelper.filterTasks(filterData);
+      },
+    )..show();
+  }
 }

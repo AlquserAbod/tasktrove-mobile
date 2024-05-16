@@ -4,7 +4,7 @@ const String serverUrl = "https://tasktrove-server.vercel.app";
 const String apiUrl = 'https://tasktrove-server.vercel.app/api';
 final SecretKey jwtSecretKey = SecretKey('d1mR8nniTwmd1QAecOMF2chbiyyQxHxCQx6j7cJT');
 
-enum Color {
+enum TaskColor {
   RED,
   BLUE,
   GREEN,
@@ -17,15 +17,24 @@ enum Color {
   PINK,
 }
 
-const Map<Color, String> colorValues = {
-  Color.RED: 'red',
-  Color.BLUE: 'blue',
-  Color.GREEN: 'green',
-  Color.YELLOW: 'yellow',
-  Color.ORANGE: 'orange',
-  Color.PURPLE: 'purple',
-  Color.CYAN: 'cyan',
-  Color.MAGENTA: 'magenta',
-  Color.TEAL: 'teal',
-  Color.PINK: 'pink',
+const Map<TaskColor, String> colorValues = {
+  TaskColor.RED: 'red',
+  TaskColor.BLUE: 'blue',
+  TaskColor.GREEN: 'green',
+  TaskColor.YELLOW: 'yellow',
+  TaskColor.ORANGE: 'orange',
+  TaskColor.PURPLE: 'purple',
+  TaskColor.CYAN: 'cyan',
+  TaskColor.MAGENTA: 'magenta',
+  TaskColor.TEAL: 'teal',
+  TaskColor.PINK: 'pink',
 };
+
+TaskColor? getColorByName(String colorName) {
+  for (var entry in colorValues.entries) {
+    if (entry.value == colorName) {
+      return entry.key;
+    }
+  }
+  return null; // Return null if colorName is not found
+}

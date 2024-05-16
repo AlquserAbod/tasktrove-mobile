@@ -57,7 +57,18 @@
   "completed": "tamamlandı",
   "incompleted": "tamamlanmadı",
   "create_task": "Görev Oluştur",
+  "update_task": "Görevi Güncelle",
   "title_field": "Başlık alanı",
-  "color_field": "Renk alanı"
+  "color_field": "Renk alanı",
+  "task_is_completed": "görev tamamlandı",
+  "task_is_not_completed": "görev tamamlanmadı",
+  "task_color_is": "Görev rengi :  ",
+  "my_tasks": "Görevlerim",
+  "filter_tasks": "Görevleri Filtrele",
+  "search_in_title": "Başlıkta Ara",
+  "select_search_colors": "Renkleri Seç",
+  "reset_filters": "Filtreleri Sıfırla",
+  "no_tasks_founded": "Görev yok. Burada gösterilmek için görev eklemeyi deneyin"
+
 
 }
